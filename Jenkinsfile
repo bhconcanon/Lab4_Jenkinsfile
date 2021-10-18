@@ -25,7 +25,7 @@ spec:
         stage ('Build trigger') {
         	steps {
         		echo 'sending helloWorld'
-        		publishEvent jsonEvent('{:"eventName":"helloWorld')
+        		publishEvent jsonEvent('{:"eventName":"helloWorld"}')
 
         	}
         }
