@@ -16,17 +16,18 @@ spec:
         defaultContainer 'build'
         }
     }
+    triggers {
+    	eventTrigger simpleMatch ("helloWorld")
+    }
     stages {
         stage ('Start Time') {
             steps {
                 buildStart ()
             }
         }
-        stage ('Build trigger') {
+        stage ('Acknowledge') {
         	steps {
-        		echo 'sending helloWorld'
-        		publishEvent jsonEvent('{"eventName":"helloWorld"}')
-
+        		echo 'recieved helloWorld'
         	}
         }
         stage ('build') {
