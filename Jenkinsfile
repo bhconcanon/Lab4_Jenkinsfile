@@ -22,12 +22,13 @@ spec:
                 buildStart ()
             }
         }
-        stage ('Build trigger')
+        stage ('Build trigger') {
         	steps {
         		echo 'sending helloWorld'
         		publishEvent jsonEvent('{:"eventName":"helloWorld')
 
         	}
+        }
         stage ('build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
