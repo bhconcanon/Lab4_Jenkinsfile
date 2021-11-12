@@ -17,8 +17,8 @@ spec:
         }
     }
 triggers {
-    eventTrigger jmespathQuery(“repository.url=='https://api.github.com/repos/bhconcanon/Lab4_Jenkinsfile'")
-  }
+    eventTrigger jmespathQuery(repository.url=="https://api.github.com/repos/bhconcanon/Lab4_Jenkinsfile")  
+    }
 }
     stages {
         stage ('Start Time') {
