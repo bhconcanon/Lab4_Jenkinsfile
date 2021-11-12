@@ -16,33 +16,17 @@ spec:
         defaultContainer 'build'
         }
     }
+triggers {
+    eventTrigger jmespathQuery(“repository.url==https://github.com/dylanmeh/Using_WebHook2'“)
+
+  }
+}
     stages {
         stage ('Start Time') {
             steps {
                 buildStart ()
             }
         }
-        stage ('TriggerEvent') {
-        	steps {
-        	script {
-                echo "Build triggered by:" + currentBuild.getBuildCauses()[0].toString()
-                def cause = currentBuild.getBuildCauses()[0];
-                if ( cause._class.contains("EventTriggerCause") ) {
-                    echo "Job triggered by event"
-                    def eventContent = cause.event
-                    echo eventContent.fact.toString()
-                    def fact = eventContent.fact.content
-                    echo "Fact is:" + fact.toString()
-                	}
-                else if ( cause._class.contains("UserIdCause") ) {
-                    echo "Job triggered by user"
-                	}
-                else {
-                    	echo "Job triggered by something else"
-                	}
-            	}
-          	}
-    	}
         stage ('build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
