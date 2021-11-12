@@ -17,8 +17,7 @@ spec:
         }
     }
 triggers {
-    eventTrigger jmespathQuery(“repository.url==https://github.com/dylanmeh/Using_WebHook2'“)
-
+    eventTrigger jmespathQuery(“repository.url=='https://api.github.com/repos/bhconcanon/Lab4_Jenkinsfile'")
   }
 }
     stages {
