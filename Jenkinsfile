@@ -16,6 +16,11 @@ spec:
         defaultContainer 'build'
         }
     }
+
+    triggers {
+        eventTrigger jmespathQuery("ref=='refs/heads/main'")
+    }
+
     stages {
         stage ('Start Time') {
             steps {
